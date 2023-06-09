@@ -5,7 +5,7 @@ import navLogo from '../../../assets/navLogo-png-removebg-preview.png'
 const Footer = () => {
     return (
         <div>
-            <footer aria-label="Site Footer" className=" bg-slate-200 font-medium rounded-t-3xl">
+            <footer aria-label="Site Footer" className=" bg-slate-200 font-medium rounded-t-lg">
                 <div
                     className="max-w-screen-xl mx-auto space-y-8 sm:px-6 lg:p-10 ">
                     <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
