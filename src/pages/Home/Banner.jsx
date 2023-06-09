@@ -34,12 +34,12 @@ const Banner = () => {
                     </h2>
                     <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg ">
                         Join us this summer and embark on an unforgettable journey through the lens. Discover the world of photography, unleash your creativity, and create memories that will last a lifetime. <br />
-                        <span className='font-bold tracking-tight text-orange-400'> Enroll today and let your imagination click!</span>
+                        <span className='font-bold tracking-tight '> Enroll today and let your imagination click!</span>
                     </p>
                     <div className="flex items-center">
                         <a
                             href="/"
-                            className="inline-flex items-center justify-center h-12 px-6 mr-6 font-bold tracking-wide text-dark transition duration-200 rounded-xl shadow-lg  hover:bg-orange-400 "
+                            className="inline-flex items-center justify-center h-12 px-6 mr-6 font-bold tracking-wide text-dark transition duration-200 rounded-xl shadow-lg bg-orange-400 "
                         >
                            Join Course
                         </a>

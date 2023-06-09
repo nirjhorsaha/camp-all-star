@@ -8,6 +8,7 @@ import Home from "../pages/Home/Home";
 import Instractor from "../pages/Instractor/Instractor";
 import SignInPage from "../pages/SignInPage/SignInPage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
+import Classes from "../pages/Classes/Classes";
 
 export const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
             {
                 path: "/instractors",
                 element: <Instractor />
+            },
+            {
+                path: "/classes",
+                element: <Classes />
             },
             {
                 path: "/login",

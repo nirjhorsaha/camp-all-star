@@ -20,7 +20,7 @@ const NavBar = () => {
         {
             // user &&
             <li className='md:text-lg'>
-                <NavLink to="/mytoys"
+                <NavLink to="/classes"
                     className={({ isActive }) => (isActive ? 'text-red-500 underline font-extrabold' : 'default')}>
                     Classes
                 </NavLink>

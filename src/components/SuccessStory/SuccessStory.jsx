@@ -4,7 +4,7 @@ const SuccessStory = () => {
     return (
         <section class="text-gray-600 body-font">
             <div class="container  py-10 mx-auto">
-                <div class="flex flex-col text-center w-full mb-10">
+                <div class="flex flex-col text-center w-full my-10">
                     {/* <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">ROOF PARTY POLAROID</h2> */}
                     <h1 class="text-center text-3xl font-bold text-orange-500 mt-0">About Our Success Story</h1>
                 </div>
