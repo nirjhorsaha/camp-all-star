@@ -3,9 +3,14 @@ import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../../providers/AuthProviders';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+// import Swal from 'sweetalert2';
+import { useForm } from "react-hook-form";
+import toast from 'react-hot-toast'
+
 
 const SignInPage = () => {
     const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
@@ -19,23 +24,34 @@ const SignInPage = () => {
 
     const handleLogin = (event) => {
         event.preventDefault();
-        if (!(email && password)) {
-            setError('Something went wrong!');
-        }
-        else {
-            setError("Email & Password doesn\'t match")
-        }
+        // if (!(email)) {
+        //     setError('Something went wrong!');
+        // }
+        // else {
+        //     setError("Email & Password doesn\'t match")
+        // }
 
-        if ((email, password)) {
-            signIn(email, password)
-                .then((result) => {
-                    console.log(result.user);
-                    navigate(from, { replace: true })
-                })
-                .catch((error) => {
-                    console.log(error.message);
-                });
-        }
+
+        // if ((email, password)) {
+        //     signIn(email, password)
+        //         .then((result) => {
+        //             console.log(result.user);
+        //             // Swal.fire({
+        //             //     title: 'User Login Successful.',
+        //             //     showClass: {
+        //             //         popup: 'animate__animated animate__fadeInDown'
+        //             //     },
+        //             //     hideClass: {
+        //             //         popup: 'animate__animated animate__fadeOutUp'
+        //             //     }
+        //             // });
+        //             toast.success('User Login successful');
+        //             navigate(from, { replace: true })
+        //         })
+        //         .catch((error) => {
+        //             console.log(error.message);
+        //         });
+        // }
     };
 
     const handleGoogleSignIn = () => {
@@ -43,6 +59,7 @@ const SignInPage = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
+                toast.success('User Login successful');
                 navigate(from, { replace: true })
 
             }).catch((error) => {
@@ -63,12 +80,38 @@ const SignInPage = () => {
             });
     }
 
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const onSubmit = data => {
+        // console.log(data);
+        signIn(data.email, data.password)
+            .then((result) => {
+                console.log(result.user);
+                // Swal.fire({
+                //     title: 'User Login Successful.',
+                //     showClass: {
+                //         popup: 'animate__animated animate__fadeInDown'
+                //     },
+                //     hideClass: {
+                //         popup: 'animate__animated animate__fadeOutUp'
+                //     }
+                // });
+                toast.success('User Login successful');
+                navigate(from, { replace: true })
+            })
+            .catch((error) => {
+                // const errorMessage = error.message;9
+                setErrorMessage('Something went wrong')
+                console.log(error.message);
+            });
+    }
 
     return (
         <div>
             <Helmet>
                 <title>Login - Camp All Star</title>
             </Helmet>
+
             <div>
                 <section className="dark:bg-gray-900 rounded-3xl mb-10">
                     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
@@ -90,17 +133,27 @@ const SignInPage = () => {
                                     </p>
                                 </div>
                                 <hr />
-                                <form className="space-y-4 md:space-y-6" action="#">
+                                <form
+                                    onSubmit={handleSubmit(onSubmit)}
+                                    className="space-y-4 md:space-y-6" action="#">
                                     <div>
                                         <label for="email" className="custom_label_field">Your email</label>
-                                        <input onChange={(e) => setEmail(e.target.value)}
-                                            type="email" name="email" id="email" className="custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@gmail.com" required="" />
+                                        {/* <input onChange={(e) => setEmail(e.target.value)}
+                                            type="email" name="email" id="email" className="custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@gmail.com" required/> */}
+                                        <input type="email"  {...register("email", { required: true })} name="email" placeholder="email" className="input input-bordered custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                        {errors.email && <span className="text-red-600">Email is required</span>}
+
                                     </div>
                                     <div>
                                         <label for="password" className="custom_label_field">Password</label>
-                                        <input
+                                        {/* <input
                                             onChange={(e) => setPassword(e.target.value)}
-                                            type="password" name="password" id="password" placeholder="••••••••" className="custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" />
+                                            type="password" name="password" id="password" placeholder="••••••••" className="custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required /> */}
+                                        <input type="password"  {...register("password", {
+                                            required: true
+                                        })} placeholder="••••••••" className="input input-bordered custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                        {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
+
                                     </div>
                                     <div className="flex items-center justify-between">
                                         <div className="flex items-start">
@@ -114,13 +167,13 @@ const SignInPage = () => {
                                         <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
                                     </div>
                                     <button
-                                        onClick={handleLogin}
+                                        // onClick={handleLogin}
                                         type="submit" className="w-full text-dark bg-orange-400 hover:bg-orange-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
                                     <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                                         Don’t have an account yet?
                                         <Link className='ms-1 font-bold text-primary-600 italic hover:underline dark:text-primary-500' to='/signup'>Signup</Link>
                                     </p>
-                                    <p className='text-red-500 text-center'>{error}</p>
+                                    <p className='text-red-500 text-center'>{errorMessage}</p>
                                 </form>
                             </div>
                         </div>
