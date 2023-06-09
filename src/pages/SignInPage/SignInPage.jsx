@@ -3,9 +3,9 @@ import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../../providers/AuthProviders';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-// import Swal from 'sweetalert2';
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast'
+// import Swal from 'sweetalert2';
 
 
 const SignInPage = () => {
@@ -14,45 +14,44 @@ const SignInPage = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const googleProvider = new GoogleAuthProvider();
-    const githubProvider = new GithubAuthProvider();
-    // console.log(email, password);
 
-    const handleLogin = (event) => {
-        event.preventDefault();
-        // if (!(email)) {
-        //     setError('Something went wrong!');
-        // }
-        // else {
-        //     setError("Email & Password doesn\'t match")
-        // }
+    // const handleLogin = (event) => {
+    //     event.preventDefault();
+    //     if (!(email)) {
+    //         setError('Something went wrong!');
+    //     }
+    //     else {
+    //         setError("Email & Password doesn\'t match")
+    //     }
 
 
-        // if ((email, password)) {
-        //     signIn(email, password)
-        //         .then((result) => {
-        //             console.log(result.user);
-        //             // Swal.fire({
-        //             //     title: 'User Login Successful.',
-        //             //     showClass: {
-        //             //         popup: 'animate__animated animate__fadeInDown'
-        //             //     },
-        //             //     hideClass: {
-        //             //         popup: 'animate__animated animate__fadeOutUp'
-        //             //     }
-        //             // });
-        //             toast.success('User Login successful');
-        //             navigate(from, { replace: true })
-        //         })
-        //         .catch((error) => {
-        //             console.log(error.message);
-        //         });
-        // }
-    };
+    //     if ((email, password)) {
+    //         signIn(email, password)
+    //             .then((result) => {
+    //                 console.log(result.user);
+    //                 // Swal.fire({
+    //                 //     title: 'User Login Successful.',
+    //                 //     showClass: {
+    //                 //         popup: 'animate__animated animate__fadeInDown'
+    //                 //     },
+    //                 //     hideClass: {
+    //                 //         popup: 'animate__animated animate__fadeOutUp'
+    //                 //     }
+    //                 // });
+    //                 toast.success('User Login successful');
+    //                 navigate(from, { replace: true })
+    //             })
+    //             .catch((error) => {
+    //                 console.log(error.message);
+    //             });
+    //     }
+    // };
 
     const handleGoogleSignIn = () => {
         googleSignIn(googleProvider)
