@@ -1,17 +1,23 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-// import { Helmet, HelmetProvider } from 'react-helmet-async';
+import TopSlider from '../../components/TopSlider/TopSlider';
+import PopularClasses from '../../components/PopularClasses/PopularClasses';
+import PopularInstractors from '../../components/PopularInstractors/PopularInstractors';
+import SuccessStory from '../../components/SuccessStory/SuccessStory';
+import Banner from './Banner';
 
 
 const Home = () => {
     return (
-
         <div>
             <Helmet>
                 <title>Home - Camp All Star</title>
             </Helmet>
-            <h1>home page</h1>
-
+            <Banner />
+            <TopSlider />
+            <PopularClasses />
+            <PopularInstractors />
+            <SuccessStory />
         </div>
     );
 };
