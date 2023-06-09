@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import navLogo from '../../../assets/navLogo-png-removebg-preview.png'
 import avatarImg from '../../../assets/placeholder.jpg'
+import { AuthContext } from '../../../providers/AuthProviders';
 
 const NavBar = () => {
+    const { user, logout } = useContext(AuthContext);
+    const handleLogout = () => {
+        logout()
+            .then()
+            .catch(error => console.log(error))
+    }
     const navOptions = <>
         <li className='md:text-lg'>
             <NavLink to="/"
@@ -140,10 +147,11 @@ const NavBar = () => {
                     <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             {
-                                // user &&
+                                // user ?
                                 <div id="app-title" className="w-10 rounded-full">
-                                    <img src={avatarImg} />
+                                    <img src={user && user.photoURL ? user.photoURL : avatarImg} />
                                 </div>
+
                             }
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
@@ -155,10 +163,7 @@ const NavBar = () => {
                             {/* <li><a>Dashboard</a></li> */}
                         </ul>
                     </div>
-                    <Link to='/login'>
-                        <button className="btn btn-warning btn-outline ms-4">login</button>
-                    </Link>
-                    {/* {
+                    {
                         user ?
                             <div>
                                 <button onClick={handleLogout} className="btn btn-warning btn-outline ms-4">Logout</button>
@@ -167,7 +172,7 @@ const NavBar = () => {
                             : <Link to='/login'>
                                 <button className="btn btn-warning btn-outline ms-4">login</button>
                             </Link>
-                    } */}
+                    }
                 </div>
             </div>
         </div>
