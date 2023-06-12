@@ -70,7 +70,8 @@ const SignUpPage = () => {
             <Helmet>
                 <title>Sign UPp - Camp All Star</title>
             </Helmet>
-            <section className="dark:bg-gray-900  mb-10">
+
+            <section className="dark:bg-gray-900 mb-10">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                     <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -89,11 +90,11 @@ const SignUpPage = () => {
                                     {errors.name && <span className="text-red-600">Name is required</span>}
                                 </div>
                                 <div>
-                                    <label for="email" className="custom_label_field">Your email</label>
+                                    <label for="email" className="custom_label_field">Your Email</label>
                                     {/* <input
                                         onChange={(e) => setEmail(e.target.value)}
                                         type="email" name="email" id="email" className="custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="" /> */}
-                                    <input type="email"  {...register("email", { required: true })} name="email" placeholder="email" className="input input-bordered custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                    <input type="email"  {...register("email", { required: true })} name="email" placeholder="Email" className="input input-bordered custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                     {errors.email && <span className="text-red-600">Email is required</span>}
                                 </div>
 

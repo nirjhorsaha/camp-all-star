@@ -28,29 +28,29 @@ const TopSlider = () => {
                 modules={[Pagination]}
                 className="mySwiper my-6"
             >
-                <SwiperSlide className='border-2 shadow-xl rounded-t-2xl'>
+                <SwiperSlide className='border-1 shadow-xl rounded-t-2xl p-4 md:p-0'>
                     <img src={slideImg1} alt="" srcset="" className='mx-auto mt-3' />
-                    <h1 className='text-center text-xl m-10 tracking-widest font-bold'>Best Tutor</h1>
+                    <h1 className='text-center text-xl m-4 md:m-10 tracking-widest font-bold '>Best Tutor</h1>
                 </SwiperSlide>
 
-                <SwiperSlide className='border-2 shadow-xl rounded-t-2xl'>
+                <SwiperSlide className='border-1 shadow-xl rounded-t-2xl p-4 md:p-0'>
                     <img src={slideImg2} alt="" srcset="" className='mx-auto mt-3' />
-                    <h1 className='text-center text-xl m-10 tracking-widest font-bold'>Best Curriculum</h1>
+                    <h1 className='text-center text-xl m-4 md:m-10 tracking-widest font-bold'>Best Curriculum</h1>
                 </SwiperSlide>
 
-                <SwiperSlide className='border-2 shadow-xl rounded-t-2xl'>
+                <SwiperSlide className='border-1 shadow-xl rounded-t-2xl p-4 md:p-0'>
                     <img src={slideImg3} alt="" srcset="" className='mx-auto mt-3' />
-                    <h1 className='text-center text-xl m-10 tracking-widest font-bold'>Certificate</h1>
+                    <h1 className='text-center text-xl m-4 md:m-10 tracking-widest font-bold'>Certificate</h1>
                 </SwiperSlide>
 
-                <SwiperSlide className='border-2 shadow-xl rounded-t-2xl'>
+                <SwiperSlide className='border-1 shadow-xl rounded-t-2xl p-4 md:p-0'>
                     <img src={slideImg4} alt="" srcset="" className='mx-auto mt-3' />
-                    <h1 className='text-center text-xl m-10 tracking-widest font-bold'>Best Price</h1>
+                    <h1 className='text-center text-xl m-4 md:m-10 tracking-widest font-bold'>Best Price</h1>
                 </SwiperSlide>
                 
-                <SwiperSlide className='border-2 shadow-xl rounded-t-2xl'>
+                <SwiperSlide className='border-1 shadow-xl rounded-t-2xl p-4 md:p-0'>
                     <img src={slideImg5} alt="" srcset="" className='mx-auto mt-3'/>
-                    <h1 className='text-center text-xl m-10 tracking-widest font-bold'>Creative Thinking</h1>
+                    <h1 className='text-center text-xl m-4 md:m-10 tracking-widest font-bold'>Creative Thinking</h1>
                 </SwiperSlide>
             </Swiper>
         </>

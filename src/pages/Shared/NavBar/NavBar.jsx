@@ -3,14 +3,19 @@ import { Link, NavLink } from 'react-router-dom';
 import navLogo from '../../../assets/navLogo-png-removebg-preview.png'
 import avatarImg from '../../../assets/placeholder.jpg'
 import { AuthContext } from '../../../providers/AuthProviders';
+import { Switch, useDarkreader } from "react-darkreader";
 
 const NavBar = () => {
     const { user, logout } = useContext(AuthContext);
+    const [isDark, { toggle }] = useDarkreader(false);
+    
+    // user logout
     const handleLogout = () => {
         logout()
             .then()
             .catch(error => console.log(error))
     }
+
     const navOptions = <>
         <li className='md:text-lg'>
             <NavLink to="/"
@@ -86,7 +91,8 @@ const NavBar = () => {
                             </li> */}
     </>
     return (
-        <div>
+        <div className='App'>
+            {/* <Icon /> */}
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -173,6 +179,10 @@ const NavBar = () => {
                                 <button className="btn btn-warning btn-outline ms-4">login</button>
                             </Link>
                     }
+                    <li className="App-switch-item">
+                        <Switch checked={isDark} onChange={toggle} styling="github" />
+                        {/* <p>Github</p> */}
+                    </li>
                 </div>
             </div>
         </div>

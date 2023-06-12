@@ -13,6 +13,7 @@ const Home = () => {
             <Helmet>
                 <title>Home - Camp All Star</title>
             </Helmet>
+            
             <Banner />
             <TopSlider />
             <PopularClasses />

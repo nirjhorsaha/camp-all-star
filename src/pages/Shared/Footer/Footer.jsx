@@ -8,7 +8,7 @@ const Footer = () => {
             <footer aria-label="Site Footer" className=" bg-slate-200 font-medium rounded-t-lg">
                 <div
                     className="max-w-screen-xl mx-auto space-y-8 sm:px-6 lg:p-10 ">
-                    <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 p-4">
                         <div>
                             <img src={navLogo} className='w-28 mx-auto md:mx-0' alt="" srcset="" />
                             {/* <h1 className='text-orange-500 font-extrabold text-3xl'>Camp All Star</h1> */}

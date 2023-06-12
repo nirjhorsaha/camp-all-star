@@ -52,7 +52,8 @@ const SignInPage = () => {
     //             });
     //     }
     // };
-
+    
+    // google signin
     const handleGoogleSignIn = () => {
         googleSignIn(googleProvider)
             .then((result) => {
@@ -99,7 +100,6 @@ const SignInPage = () => {
                 navigate(from, { replace: true })
             })
             .catch((error) => {
-                // const errorMessage = error.message;9
                 setErrorMessage('Something went wrong')
                 console.log(error.message);
             });
@@ -136,10 +136,10 @@ const SignInPage = () => {
                                     onSubmit={handleSubmit(onSubmit)}
                                     className="space-y-4 md:space-y-6" action="#">
                                     <div>
-                                        <label for="email" className="custom_label_field">Your email</label>
+                                        <label for="email" className="custom_label_field">Your Email</label>
                                         {/* <input onChange={(e) => setEmail(e.target.value)}
                                             type="email" name="email" id="email" className="custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@gmail.com" required/> */}
-                                        <input type="email"  {...register("email", { required: true })} name="email" placeholder="email" className="input input-bordered custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                        <input type="email"  {...register("email", { required: true })} name="email" placeholder="Email" className="input input-bordered custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                         {errors.email && <span className="text-red-600">Email is required</span>}
 
                                     </div>

@@ -11,7 +11,7 @@ const Banner = () => {
                     fill="currentColor"
                     preserveAspectRatio="none slice"
                 >
-                    <path d="M50 0H100L50 100H0L50 0Z" />
+                    <path d="M40 0H100L50 100H0L50 0Z" />
                 </svg>
                 <img
                     className="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96"
@@ -39,8 +39,7 @@ const Banner = () => {
                     <div className="flex items-center">
                         <a
                             href="/"
-                            className="inline-flex items-center justify-center h-12 px-6 mr-6 font-bold tracking-wide text-dark transition duration-200 rounded-xl shadow-lg bg-orange-400 "
-                        >
+                            className="inline-flex items-center justify-center h-12 px-6 mr-6 font-bold tracking-wide text-dark transition duration-200 rounded-xl shadow-lg bg-orange-400 ">
                            Join Course
                         </a>
                     </div>
