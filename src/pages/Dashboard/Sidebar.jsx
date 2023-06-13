@@ -11,7 +11,7 @@ const Sidebar = () => {
     const [toggle, setToggle] = useState(false)
     const { user, logOut, role } = useContext(AuthContext)
     const isAdmin = false;
-    const isInstructor = true;
+    const isInstructor = false;
 
     const [isActive, setActive] = useState('false')
     const toggleHandler = event => {
@@ -84,9 +84,10 @@ const Sidebar = () => {
 
                     {/* Nav Items */}
                     <div className='flex flex-col justify-between flex-1 mt-6'>
+                    <hr />
                         <nav>
                             <>
-                                <label
+                                {/* <label
                                     htmlFor='Toggle3'
                                     className='inline-flex w-full justify-center items-center px-2 rounded-md cursor-pointer text-gray-800'
                                 >
@@ -102,7 +103,7 @@ const Sidebar = () => {
                                     <span className='px-4 py-1 rounded-r-md bg-gray-300 peer-checked:bg-orange-400'>
                                         Admin
                                     </span>
-                                </label>
+                                </label> */}
 
                                 {
                                     isAdmin ?
@@ -191,13 +192,10 @@ const Sidebar = () => {
                                                 >
                                                     <FaMoneyCheckAlt className='w-5 h-5' />
 
-                                                    <span className='mx-4 font-medium'>Payment Histry</span>
+                                                    <span className='mx-4 font-medium'>Payment History</span>
                                                 </NavLink>
                                             </>
                                 }
-
-
-
                             </>
                         </nav>
                     </div>

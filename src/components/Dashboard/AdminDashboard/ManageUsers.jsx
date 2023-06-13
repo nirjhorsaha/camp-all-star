@@ -4,7 +4,7 @@ const ManageUsers = () => {
     return (
         <div>
             <h1 className='text-center text-4xl font-bold text-orange-500 my-6'>Manage Users</h1>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto px-6">
                 <table className="table">
                     {/* head */}
                     <thead>
@@ -38,7 +38,7 @@ const ManageUsers = () => {
                             </td>
                             <td>Purple</td>
                             <th>
-                                <div className="sm:flex gap-4">
+                                <div className="sm:flex gap-4 mx-auto">
                                     <button className="btn btn-ghost btn-xs border-orange-400">Make Admin</button>
                                     <button className="btn btn-ghost btn-xs border-orange-400">Make Instructor</button>
                                </div>
