@@ -3,7 +3,7 @@ import React from 'react';
 const PopularInstractors = () => {
     return (
         <>
-            <h1 className='text-center text-3xl font-bold text-orange-500 my-10'> Our Popular Instractors</h1>
+            <h1 className='text-center text-4xl font-bold text-orange-500 my-10'> Our Popular Instractors</h1>
             {/* <h1 className='text-center text-3xl font-bold text-orange-500 my-10 border-y-8 w-96 mx-auto p-3'> Our Popular Instractors</h1> */}
             <div className="grid md:grid-cols-3 gap-4">
 

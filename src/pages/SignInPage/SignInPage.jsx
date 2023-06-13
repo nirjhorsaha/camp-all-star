@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast'
+import { saveUser } from '../../api/auth';
 // import Swal from 'sweetalert2';
 
 
@@ -59,6 +60,9 @@ const SignInPage = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
+
+                // save user to database
+                saveUser(user)
                 toast.success('User Login successful');
                 navigate(from, { replace: true })
 
@@ -96,6 +100,8 @@ const SignInPage = () => {
                 //         popup: 'animate__animated animate__fadeOutUp'
                 //     }
                 // });
+                //saved user to database
+                saveUser(result.user)
                 toast.success('User Login successful');
                 navigate(from, { replace: true })
             })

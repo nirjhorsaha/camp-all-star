@@ -18,7 +18,7 @@ import slideImg5 from '../../../src/assets/idea.png'
 const TopSlider = () => {
     return (
         <>
-            <h1 className='text-center text-3xl font-bold text-orange-500 my-10'>Why we are best from others</h1>
+            <h1 className='text-center text-4xl font-bold text-orange-500 my-10'>Why we are best from others</h1>
             <Swiper
                 slidesPerView={3}
                 spaceBetween={30}

@@ -41,7 +41,7 @@ const NavBar = () => {
         {
             // user &&
             <li className='md:text-lg'>
-                <NavLink to="/addtoys"
+                <NavLink to="/dashboard"
                     className={({ isActive }) => (isActive ? 'text-red-500 underline font-extrabold' : 'default')}>
                     Dashboard
                 </NavLink>

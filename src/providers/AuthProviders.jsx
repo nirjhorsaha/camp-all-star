@@ -30,8 +30,8 @@ const AuthProviders = ({ children }) => {
     }
 
     const logout = () => {
-        return signOut(auth);
         setLoading(true);
+        return signOut(auth);
     }
 
     const googleSignIn = (googleProvider) => {

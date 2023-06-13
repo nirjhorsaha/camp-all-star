@@ -5,6 +5,7 @@ import { AuthContext } from '../../providers/AuthProviders';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2'
 import toast from 'react-hot-toast'
+import { saveUser } from '../../api/auth';
 
 
 const SignUpPage = () => {
@@ -49,6 +50,9 @@ const SignUpPage = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         console.log('user profile info updated')
+                        
+                        // save user to database
+                        saveUser(loggedUser)
                         reset();
                         // Swal.fire({
                         //     position: 'top-end',
@@ -105,7 +109,7 @@ const SignUpPage = () => {
                                     <input type="text"  {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                     {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
                                 </div>
-                                
+
                                 <div>
                                     <label for="password" className="custom_label_field">Password</label>
                                     {/* <input

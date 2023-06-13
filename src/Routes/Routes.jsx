@@ -9,6 +9,9 @@ import Instractor from "../pages/Instractor/Instractor";
 import SignInPage from "../pages/SignInPage/SignInPage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
 import Classes from "../pages/Classes/Classes";
+import Dashboard from "../pages/Dashboard/Dashboard";
+import AddClass from "../components/Dashboard/InstructorDashboard/AddClass/AddClass";
+import MyClass from "../components/Dashboard/InstructorDashboard/MyClass/MyClass";
 
 export const router = createBrowserRouter([
     {
@@ -38,4 +41,18 @@ export const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: "dashboard",
+        element: <Dashboard />,
+        children: [
+            {
+                path: "/dashboard/addClass",
+                element: <AddClass/>
+            },
+            {
+                path: "/dashboard/myClass",
+                element: <MyClass/>
+            },
+        ]
+    }
 ]);
