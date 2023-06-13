@@ -13,7 +13,7 @@ const Dashboard = () => {
             <div className='relative min-h-screen md:flex'>
                 <Sidebar />
                 <div className='flex-1  md:ml-64'>
-                    <div className=''>
+                    <div className='p-0'>
                         <Outlet />
                     </div>
                 </div>
