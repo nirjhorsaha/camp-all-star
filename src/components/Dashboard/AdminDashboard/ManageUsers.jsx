@@ -1,9 +1,17 @@
 import React from 'react';
 import CustomHeader from '../../../pages/Shared/CustomHeader/CustomHeader';
+import { useQuery } from '@tanstack/react-query';
 
 const ManageUsers = () => {
+
+    const { data: users = [], refetch } = useQuery(['users'], async () => {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/users`)
+        return res.json();
+    })
+
     return (
         <div>
+            {users.length}
             {/* <h1 className='text-center text-4xl font-bold text-orange-500 my-6'>Manage Users</h1> */}
             <CustomHeader title='Manage Users'></CustomHeader>
             <div className='badge badge-outline font-extrabold mx-auto flex btn-sm px-6 border-orange-400 mb-4'>Total Users: </div>
