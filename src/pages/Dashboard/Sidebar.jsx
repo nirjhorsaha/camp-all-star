@@ -11,7 +11,7 @@ const Sidebar = () => {
     const [toggle, setToggle] = useState(false)
     const { user, logOut, role } = useContext(AuthContext)
     const isAdmin = false;
-    const isInstructor = false;
+    const isInstructor = true;
 
     const [isActive, setActive] = useState('false')
     const toggleHandler = event => {
@@ -58,7 +58,7 @@ const Sidebar = () => {
                                     <h1 className='text-2xl font-bold'>Welcome To <br /> Instructor Dashboard</h1>
                                 </>
                                 : <>
-                                    <h1 className='text-2xl font-bold'>Welcome To <br /> Student Dashboard</h1>
+                                    <h1 className='text-2xl font-bold'>Welcome To <br /> User Dashboard</h1>
                                 </>
                     }
                     <div className='flex flex-col items-center mt-6 -mx-2'>

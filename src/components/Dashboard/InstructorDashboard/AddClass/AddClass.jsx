@@ -3,6 +3,9 @@ import { AuthContext } from '../../../../providers/AuthProviders';
 import { useState } from 'react';
 import { imageUpload } from '../../../../api/utils';
 import CustomHeader from '../../../../pages/Shared/CustomHeader/CustomHeader';
+import { addclass } from '../../../../api/classes';
+import { toast } from 'react-hot-toast';
+
 
 const AddClass = () => {
     const { user, logOut, role } = useContext(AuthContext);
@@ -24,9 +27,32 @@ const AddClass = () => {
         imageUpload(classImg)
             .then(data => { 
                 console.log(data);
+                const classData = {
+                    className,
+                    insName,
+                    insEmail,
+                    avSeats,
+                    price: parseFloat(price),
+                    classImg: data.data.display_url,
+                    instructor: {
+                        name: user?.displayName,
+                        image: user?.photoURL,
+                        email: user?.email,
+                    },
+                }
+                console.log(classData);
+                addclass(classData)
+                    .then(data => {
+                        console.log(data)
+                        // setLoading(false)
+                        toast.success('Class Added.!')
+                        // navigate('/dashboard/my-listings')
+                    })
+                    .catch(err => console.log(err))
             })
             .catch(err => console.log(err))
     }
+
     // const handleImageChange = image => {
     //     console.log(image)
     //     setUploadButtonText(image.name)
