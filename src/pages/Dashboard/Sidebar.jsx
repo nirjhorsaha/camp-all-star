@@ -9,9 +9,9 @@ import { FaMoneyCheckAlt, FaUserFriends, FaRegAddressCard } from 'react-icons/fa
 const Sidebar = () => {
     const navigate = useNavigate()
     const [toggle, setToggle] = useState(false)
-    const { user, logOut, role } = useContext(AuthContext)
-    const isAdmin = false;
-    const isInstructor = true;
+    const { user, logout, role } = useContext(AuthContext)
+    const isAdmin = true;
+    const isInstructor = false;
 
     const [isActive, setActive] = useState('false')
     const toggleHandler = event => {
@@ -21,8 +21,10 @@ const Sidebar = () => {
     const handleToggle = () => {
         setActive(!isActive)
     }
-    const handleLogOut = () => {
-        logOut()
+    const handleLogout = () => {
+        logout()
+            .then()
+            .catch(error => console.log(error))
         navigate('/')
     }
     return (
@@ -84,7 +86,7 @@ const Sidebar = () => {
 
                     {/* Nav Items */}
                     <div className='flex flex-col justify-between flex-1 mt-6'>
-                    <hr />
+                        <hr />
                         <nav>
                             <>
                                 {/* <label
@@ -244,7 +246,7 @@ const Sidebar = () => {
                         <span className='mx-4'>Home</span>
                     </NavLink>
                     <button
-                        onClick={handleLogOut}
+                        onClick={handleLogout}
                         className='flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'
                     >
                         <AiOutlineLogout className='w-5 h-5' />

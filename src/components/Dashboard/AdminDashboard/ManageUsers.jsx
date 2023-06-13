@@ -1,9 +1,12 @@
 import React from 'react';
+import CustomHeader from '../../../pages/Shared/CustomHeader/CustomHeader';
 
 const ManageUsers = () => {
     return (
         <div>
-            <h1 className='text-center text-4xl font-bold text-orange-500 my-6'>Manage Users</h1>
+            {/* <h1 className='text-center text-4xl font-bold text-orange-500 my-6'>Manage Users</h1> */}
+            <CustomHeader title='Manage Users'></CustomHeader>
+            <div className='badge badge-outline font-extrabold mx-auto flex btn-sm px-6 border-orange-400 mb-4'>Total Users: </div>
             <div className="overflow-x-auto px-6">
                 <table className="table">
                     {/* head */}

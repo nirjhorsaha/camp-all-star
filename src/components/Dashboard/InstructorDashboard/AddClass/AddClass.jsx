@@ -29,8 +29,8 @@ const AddClass = () => {
                 console.log(data);
                 const classData = {
                     className,
-                    insName,
-                    insEmail,
+                    // insName,
+                    // insEmail,
                     avSeats,
                     price: parseFloat(price),
                     classImg: data.data.display_url,
@@ -45,7 +45,7 @@ const AddClass = () => {
                     .then(data => {
                         console.log(data)
                         // setLoading(false)
-                        toast.success('Class Added.!')
+                        toast.success('Class Added.! Please wait for Admin Approval')
                         // navigate('/dashboard/my-listings')
                     })
                     .catch(err => console.log(err))

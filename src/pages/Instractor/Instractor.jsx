@@ -7,7 +7,7 @@ const Instractor = () => {
             <Helmet>
                 <title>Instractors - Camp All Star</title>
             </Helmet>
-            <h1 className='text-center text-3xl font-bold text-orange-500 mb-10'>Our Instractors</h1>
+            <h1 className='text-center text-3xl font-bold text-orange-500 mb-10'>Our Instructors</h1>
 
             <div className='grid md:grid-cols-3 gap-2'>
 

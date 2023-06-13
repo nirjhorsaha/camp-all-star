@@ -23,7 +23,7 @@ const MyClass = () => {
                         <p>Available Seats: <span>100</span></p>
                         <p>Price: $ <span>50</span></p>
                         <div className="card-actions justify-end">
-                            <button className="btn btn-ghost btn-xs border-2 border-green-400">Status</button>
+                            <button className="badge badge-outline font-extrabold btn-xs border-2 border-green-400">Status</button>
                             {/* <button className="btn btn-ghost btn-xs border-2 border-red-500">Deny </button> */}
                         </div>
                     </div>

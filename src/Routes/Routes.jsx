@@ -17,6 +17,7 @@ import SelectedClass from "../components/Dashboard/UserDashboard/SelectedClass";
 import PaymentHistry from "../components/Dashboard/UserDashboard/PaymentHistry";
 import ManageClass from "../components/Dashboard/AdminDashboard/ManageClass";
 import ManageUsers from "../components/Dashboard/AdminDashboard/ManageUsers";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -48,7 +49,7 @@ export const router = createBrowserRouter([
     },
     {
         path: "dashboard",
-        element: <Dashboard />,
+        element: <PrivateRoute><Dashboard /></PrivateRoute>,
         children: [
             //admin route
             {
