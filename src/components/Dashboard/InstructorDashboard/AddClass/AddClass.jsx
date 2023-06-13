@@ -2,13 +2,14 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../../../providers/AuthProviders';
 import { useState } from 'react';
 import { imageUpload } from '../../../../api/utils';
+import CustomHeader from '../../../../pages/Shared/CustomHeader/CustomHeader';
 
 const AddClass = () => {
     const { user, logOut, role } = useContext(AuthContext);
     // const [uploadButtonText, setUploadButtonText] = useState('Upload Image')
     
     const [loading, setLoading] = useState(false)
-    
+
     const handleSubmit = (event) => {
         setLoading(true);
         event.preventDefault();
@@ -31,8 +32,9 @@ const AddClass = () => {
     //     setUploadButtonText(image.name)
     // }
     return (
-        <div className='w-full min-h-[calc(100vh-40px)] flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50 p-4'>
-            <h1 className='text-center text-4xl font-bold text-orange-500 mb-10 border-y-4 w-96 p-4'>Add Class</h1>
+        <div className='w-full min-h-[calc(100vh-60px)] flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50 p-4'>
+            {/* <h1 className='text-center text-4xl font-bold text-orange-500 border-y-4 w-96 p-4'>Add Class</h1> */}
+            <CustomHeader title='Add Class'></CustomHeader>
             <form onSubmit={handleSubmit}>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
                     <div className='space-y-6'>

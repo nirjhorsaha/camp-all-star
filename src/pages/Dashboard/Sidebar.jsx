@@ -10,8 +10,8 @@ const Sidebar = () => {
     const navigate = useNavigate()
     const [toggle, setToggle] = useState(false)
     const { user, logOut, role } = useContext(AuthContext)
-    const isAdmin = true;
-    const isInstructor = false;
+    const isAdmin = false;
+    const isInstructor = true;
 
     const [isActive, setActive] = useState('false')
     const toggleHandler = event => {

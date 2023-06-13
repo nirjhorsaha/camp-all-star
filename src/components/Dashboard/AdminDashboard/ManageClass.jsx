@@ -1,9 +1,11 @@
 import React from 'react';
+import CustomHeader from '../../../pages/Shared/CustomHeader/CustomHeader';
 
 const ManageClass = () => {
     return (
         <div>
-            <h1 className='text-center text-4xl font-bold text-orange-500 my-6'>Manage Class</h1>
+            {/* <h1 className='text-center text-4xl font-bold text-orange-500 my-6 border-y-4 w-96 p-4 mx-auto'>Manage Class</h1> */}
+            <CustomHeader title='Manage Class'></CustomHeader>
             <div className="grid md:grid-cols-3 gap-4 p-4">
                 <div className="card md:w-80 bg-base-100 shadow-xl group">
                     <figure>
@@ -17,7 +19,7 @@ const ManageClass = () => {
                         <p>Ins Name: <span> </span></p>
                         <p>Ins Email: <span> </span></p>
                         <p>Available Seats: <span>100</span></p>
-                        <p>Available Price: $ <span>50</span></p>
+                        <p>Price: $ <span>50</span></p>
                         <div className="card-actions justify-end">
                             <button className="btn btn-ghost btn-xs border-2 border-green-400">Approve</button>
                             <button className="btn btn-ghost btn-xs border-2 border-red-500">Deny </button>
