@@ -10,8 +10,8 @@ const Sidebar = () => {
     const navigate = useNavigate()
     const [toggle, setToggle] = useState(false)
     const { user, logOut, role } = useContext(AuthContext)
-    const isAdmin = false;
-    const isInstructor = true;
+    const isAdmin = true;
+    const isInstructor = false;
 
     const [isActive, setActive] = useState('false')
     const toggleHandler = event => {
@@ -48,7 +48,19 @@ const Sidebar = () => {
                     }  md:translate-x-0  transition duration-200 ease-in-out`}
             >
                 <div>
-                    <h1 className='text-2xl font-bold'>Welcome To <br /> Instructor Dashboard</h1>
+                    {
+                        isAdmin ?
+                            <>
+                                <h1 className='text-2xl font-bold'>Welcome To <br /> Admin Dashboard</h1>
+                            </>
+                            : isInstructor ?
+                                <>
+                                    <h1 className='text-2xl font-bold'>Welcome To <br /> Instructor Dashboard</h1>
+                                </>
+                                : <>
+                                    <h1 className='text-2xl font-bold'>Welcome To <br /> Student Dashboard</h1>
+                                </>
+                    }
                     <div className='flex flex-col items-center mt-6 -mx-2'>
                         <Link to='/dashboard'>
                             <img
@@ -146,8 +158,7 @@ const Sidebar = () => {
                                                     <span className='mx-4 font-medium'>My Class</span>
                                                 </NavLink>
                                             </>
-                                            :
-                                            <>
+                                            : <>
                                                 <NavLink
                                                     to='/dashboard/selectedClass'
                                                     className={({ isActive }) =>
