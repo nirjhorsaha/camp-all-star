@@ -9,6 +9,7 @@ import { FaMoneyCheckAlt, FaUserFriends, FaRegAddressCard } from 'react-icons/fa
 const Sidebar = () => {
     const navigate = useNavigate()
     const { user, logout, role } = useContext(AuthContext)
+    // console.log(role);
 
     const [isActive, setActive] = useState('false')
 

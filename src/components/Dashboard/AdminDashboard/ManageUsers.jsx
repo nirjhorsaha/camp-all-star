@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import CustomHeader from '../../../pages/Shared/CustomHeader/CustomHeader';
 import { useQuery } from '@tanstack/react-query';
 import { becomeAdmin, becomeInstructor } from '../../../api/auth';
+import { toast } from 'react-hot-toast';
 // import { becomeInstructor } from '../../../api/auth';
 
 const ManageUsers = () => {
@@ -15,7 +16,8 @@ const ManageUsers = () => {
 
     const handleMakeAdmin = email => {
         becomeAdmin(email);
-        refetch()
+        refetch();
+        toast.success('is an Admin Now!');
     }
     const handleMakeInstructor = email => {
         becomeInstructor(email)

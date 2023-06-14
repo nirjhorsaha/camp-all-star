@@ -52,7 +52,7 @@ export const becomeInstructor = (email) => {
 
 // Get role
 export const getRole = async email => {
-  const response = await fetch(`${import.meta.env.VITE_API_URL}/user/${email}`)
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${email}`)
   const user = await response.json()
   return user?.role
 }
