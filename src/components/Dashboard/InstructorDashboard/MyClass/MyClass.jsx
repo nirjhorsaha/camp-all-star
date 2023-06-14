@@ -25,7 +25,7 @@ const MyClass = () => {
                                 <figure>
                                     <img className='object-cover group-hover:scale-110 transition' src={singleClass?.classImg} alt="Shoes" />
                                 </figure>
-                                <div className="card-body ">
+                                <div className="card-body">
                                     <h2 className="flex justify-between gap-2">
                                         <p className='card-title'>{singleClass?.className }</p>
                                         <button><BiEdit className='w-6 h-6'></BiEdit></button>

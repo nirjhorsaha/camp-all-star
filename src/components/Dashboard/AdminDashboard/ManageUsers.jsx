@@ -11,17 +11,20 @@ const ManageUsers = () => {
 
     const { data: users = [], refetch } = useQuery(['users'], async () => {
         const res = await fetch(`${import.meta.env.VITE_API_URL}/users`)
+        // console.log(users);
         return res.json();
     })
 
     const handleMakeAdmin = email => {
         becomeAdmin(email);
         refetch();
-        toast.success('is an Admin Now!');
+        toast.success('Assigned as Admin Successfully.!');
     }
     const handleMakeInstructor = email => {
         becomeInstructor(email)
         refetch();
+        toast.success('Assigned as Instructor Successfully.!');
+
     }
 
     return (

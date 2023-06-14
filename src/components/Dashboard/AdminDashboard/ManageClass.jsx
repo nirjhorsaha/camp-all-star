@@ -14,6 +14,7 @@ const ManageClass = () => {
 
     const { data: classes = [], refetch } = useQuery(['classes'], async () => {
         const res = await fetch(`${import.meta.env.VITE_API_URL}/classes`)
+        console.log(classes);
         return res.json();
     })
 
@@ -27,17 +28,17 @@ const ManageClass = () => {
                     classes.map(singleClass => (
                         <div className="card md:w-80 bg-base-100 shadow-xl group">
                             <figure>
-                                <img className='object-cover h-64 group-hover:scale-110 transition' src={singleClass.classImg} alt="Class" />
+                                <img className='object-cover h-64 group-hover:scale-110 transition' src={singleClass?.classImg} alt="Class" />
                             </figure>
                             <div className="card-body p-6">
                                 <h2 className="card-title">
-                                    {singleClass.className}
+                                    {singleClass?.className}
                                     {/* <div className="badge badge-secondary">NEW</div> */}
                                 </h2>
-                                <p>Instructor: <span>{singleClass.insName} </span></p>
-                                <p>Email: <span>{singleClass.insEmail} </span></p>
-                                <p>Available Seats: <span>{singleClass.avSeats}</span></p>
-                                <p>Price: $<span>{singleClass.price}</span></p>
+                                <p>Instructor: <span>{singleClass?.instructor?.name} </span></p>
+                                <p>Email: <span>{singleClass?.instructor?.email} </span></p>
+                                <p>Available Seats: <span>{singleClass?.avSeats}</span></p>
+                                <p>Price: $<span>{singleClass?.price}</span></p>
                                 <div className="card-actions justify-end">
                                     <button className="btn btn-ghost btn-xs border-2 border-green-400">Approve</button>
                                     <button className="btn btn-ghost btn-xs border-2 border-red-500">Deny </button>
