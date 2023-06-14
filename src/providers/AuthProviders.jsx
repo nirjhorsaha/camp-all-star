@@ -10,6 +10,7 @@ import {
     signOut,
     updateProfile
 } from "firebase/auth";
+import { getRole } from '../api/auth';
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -18,6 +19,14 @@ const AuthProviders = ({ children }) => {
     const [user, setUser] = useState(null);
     // console.log(user);
     const [loading, setLoading] = useState(true);
+    const [role, setRole] = useState(null)
+
+    useEffect(() => {
+        if (user) {
+            getRole(user.email).
+                then(data => setRole(data))
+        }
+    }, [user])
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -67,7 +76,8 @@ const AuthProviders = ({ children }) => {
         loading,
         googleSignIn,
         githubSignIn,
-        updateUserProfile
+        updateUserProfile,
+        role
     }
     return (
         <AuthContext.Provider value={authInfo}>

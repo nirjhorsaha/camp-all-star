@@ -13,6 +13,8 @@ const AddClass = () => {
     
     const [loading, setLoading] = useState(false)
 
+
+
     const handleSubmit = (event) => {
         setLoading(true);
         event.preventDefault();
@@ -135,8 +137,6 @@ const AddClass = () => {
                                 required
                             />
                         </div>
-
-                        
 
                         <div className='flex justify-between gap-2'>
                             <div className='space-y-1 text-sm'>

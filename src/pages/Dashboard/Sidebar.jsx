@@ -8,15 +8,10 @@ import { FaMoneyCheckAlt, FaUserFriends, FaRegAddressCard } from 'react-icons/fa
 
 const Sidebar = () => {
     const navigate = useNavigate()
-    const [toggle, setToggle] = useState(false)
     const { user, logout, role } = useContext(AuthContext)
-    const isAdmin = true;
-    const isInstructor = false;
 
     const [isActive, setActive] = useState('false')
-    const toggleHandler = event => {
-        setToggle(event.target.checked)
-    }
+
     // Sidebar Responsive Handler
     const handleToggle = () => {
         setActive(!isActive)
@@ -51,16 +46,18 @@ const Sidebar = () => {
             >
                 <div>
                     {
-                        isAdmin ?
+                        role === 'Admin' ?
+                            // isAdmin
                             <>
-                                <h1 className='text-2xl font-bold'>Welcome To <br /> Admin Dashboard</h1>
+                                <h1 className='text-2xl font-bold px-2'>Welcome To <br /> Admin Dashboard</h1>
                             </>
-                            : isInstructor ?
+                            : role === 'Instructor' ?
+                                // : isInstructor ?
                                 <>
-                                    <h1 className='text-2xl font-bold'>Welcome To <br /> Instructor Dashboard</h1>
+                                    <h1 className='text-2xl font-bold px-1'>Welcome To <br /> Instructor Dashboard</h1>
                                 </>
                                 : <>
-                                    <h1 className='text-2xl font-bold'>Welcome To <br /> User Dashboard</h1>
+                                    <h1 className='text-2xl font-bold px-2'>Welcome To <br /> User Dashboard</h1>
                                 </>
                     }
                     <div className='flex flex-col items-center mt-6 -mx-2'>
@@ -83,35 +80,47 @@ const Sidebar = () => {
                             </p>
                         </Link>
                     </div>
+                    <div className="card-actions justify-center">
+                        <p className='text-center badge badge-md bg-green-400  '>{role? role: 'User'}</p>
+                    </div>
+
 
                     {/* Nav Items */}
                     <div className='flex flex-col justify-between flex-1 mt-6'>
                         <hr />
                         <nav>
-                            <>
-                                {/* <label
-                                    htmlFor='Toggle3'
-                                    className='inline-flex w-full justify-center items-center px-2 rounded-md cursor-pointer text-gray-800'
-                                >
-                                    <input
-                                        onChange={toggleHandler}
-                                        id='Toggle3'
-                                        type='checkbox'
-                                        className='hidden peer'
-                                    />
-                                    <span className='px-4 py-1 rounded-l-md bg-orange-400 peer-checked:bg-gray-300'>
-                                        Instractor
-                                    </span>
-                                    <span className='px-4 py-1 rounded-r-md bg-gray-300 peer-checked:bg-orange-400'>
-                                        Admin
-                                    </span>
-                                </label> */}
+                            {
+                                role === 'Admin' ?
+                                    <>
+                                        <NavLink
+                                            to='/dashboard/manageClass'
+                                            className={({ isActive }) =>
+                                                `flex  px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                                }`
+                                            }
+                                        >
+                                            <FaRegAddressCard className='w-5 h-5' />
 
-                                {
-                                    isAdmin ?
+                                            <span className='mx-4 font-medium'>Manage Class</span>
+                                        </NavLink>
+
+                                        <NavLink
+                                            to='/dashboard/manageUsers'
+                                            className={({ isActive }) =>
+                                                `flex  px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                                }`
+                                            }
+                                        >
+                                            <FaUserFriends className='w-5 h-5' />
+
+                                            <span className='mx-4 font-medium'>Manage User</span>
+                                        </NavLink>
+
+                                    </>
+                                    : role === 'Instructor' ?
                                         <>
                                             <NavLink
-                                                to='/dashboard/manageClass'
+                                                to='addClass'
                                                 className={({ isActive }) =>
                                                     `flex  px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
                                                     }`
@@ -119,86 +128,58 @@ const Sidebar = () => {
                                             >
                                                 <FaRegAddressCard className='w-5 h-5' />
 
-                                                <span className='mx-4 font-medium'>Manage Class</span>
+                                                <span className='mx-4 font-medium'>Add Class</span>
                                             </NavLink>
 
                                             <NavLink
-                                                to='/dashboard/manageUsers'
+                                                to='myClass'
                                                 className={({ isActive }) =>
                                                     `flex  px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
                                                     }`
                                                 }
                                             >
-                                                <FaUserFriends className='w-5 h-5' />
+                                                <SiGoogleclassroom className='w-5 h-5' />
 
-                                                <span className='mx-4 font-medium'>Manage User</span>
+                                                <span className='mx-4 font-medium'>My Class</span>
+                                            </NavLink>
+                                        </>
+                                        : <>
+                                            <NavLink
+                                                to='/dashboard/selectedClass'
+                                                className={({ isActive }) =>
+                                                    `flex  px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                                    }`
+                                                }
+                                            >
+                                                <FaRegAddressCard className='w-5 h-5' />
+
+                                                <span className='mx-4 font-medium'>My Selected Class</span>
                                             </NavLink>
 
+                                            <NavLink
+                                                to='/dashboard/enrolledClass'
+                                                className={({ isActive }) =>
+                                                    `flex  px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                                    }`
+                                                }
+                                            >
+                                                <SiGoogleclassroom className='w-5 h-5' />
+
+                                                <span className='mx-4 font-medium'>My Enrolled Class</span>
+                                            </NavLink>
+                                            <NavLink
+                                                to='/dashboard/payment'
+                                                className={({ isActive }) =>
+                                                    `flex  px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                                    }`
+                                                }
+                                            >
+                                                <FaMoneyCheckAlt className='w-5 h-5' />
+
+                                                <span className='mx-4 font-medium'>Payment History</span>
+                                            </NavLink>
                                         </>
-                                        : isInstructor ?
-                                            <>
-                                                <NavLink
-                                                    to='addClass'
-                                                    className={({ isActive }) =>
-                                                        `flex  px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
-                                                        }`
-                                                    }
-                                                >
-                                                    <FaRegAddressCard className='w-5 h-5' />
-
-                                                    <span className='mx-4 font-medium'>Add Class</span>
-                                                </NavLink>
-
-                                                <NavLink
-                                                    to='myClass'
-                                                    className={({ isActive }) =>
-                                                        `flex  px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
-                                                        }`
-                                                    }
-                                                >
-                                                    <SiGoogleclassroom className='w-5 h-5' />
-
-                                                    <span className='mx-4 font-medium'>My Class</span>
-                                                </NavLink>
-                                            </>
-                                            : <>
-                                                <NavLink
-                                                    to='/dashboard/selectedClass'
-                                                    className={({ isActive }) =>
-                                                        `flex  px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
-                                                        }`
-                                                    }
-                                                >
-                                                    <FaRegAddressCard className='w-5 h-5' />
-
-                                                    <span className='mx-4 font-medium'>My Selected Class</span>
-                                                </NavLink>
-
-                                                <NavLink
-                                                    to='/dashboard/enrolledClass'
-                                                    className={({ isActive }) =>
-                                                        `flex  px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
-                                                        }`
-                                                    }
-                                                >
-                                                    <SiGoogleclassroom className='w-5 h-5' />
-
-                                                    <span className='mx-4 font-medium'>My Enrolled Class</span>
-                                                </NavLink>
-                                                <NavLink
-                                                    to='/dashboard/payment'
-                                                    className={({ isActive }) =>
-                                                        `flex  px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
-                                                        }`
-                                                    }
-                                                >
-                                                    <FaMoneyCheckAlt className='w-5 h-5' />
-
-                                                    <span className='mx-4 font-medium'>Payment History</span>
-                                                </NavLink>
-                                            </>
-                                }
-                            </>
+                            }
                         </nav>
                     </div>
                     {/* <div className='flex flex-col justify-between flex-1 mt-6'>
