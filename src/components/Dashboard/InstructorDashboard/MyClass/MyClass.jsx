@@ -12,7 +12,7 @@ const MyClass = () => {
         return res.json();
     })
 
-    const findUserSingleClass = usersClass.filter(userClass => userClass.instructor.email === user.email)
+    const findUserSingleClass = usersClass.filter(userClass => userClass?.instructor?.email === user?.email)
     console.log(findUserSingleClass);
     return (
         <div>

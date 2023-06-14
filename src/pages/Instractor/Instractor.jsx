@@ -9,7 +9,7 @@ const Instractor = () => {
         return res.json();
     })
 
-    const inst = users.filter(user => user.role === 'Instructor')
+    const inst = users.filter(user => user?.role === 'Instructor')
     return (
         <div>
             <Helmet>
