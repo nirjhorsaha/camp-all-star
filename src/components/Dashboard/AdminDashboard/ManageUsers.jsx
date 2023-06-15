@@ -33,7 +33,7 @@ const ManageUsers = () => {
         <div>
             {/* <h1 className='text-center text-4xl font-bold text-orange-500 my-6'>Manage Users</h1> */}
             <CustomHeader title='Manage Users'></CustomHeader>
-            <div className='badge badge-outline font-extrabold mx-auto flex btn-sm px-6 border-orange-400 mb-4'>Total Users: {users.length }</div>
+            <div className='badge badge-outline font-extrabold mx-auto flex btn-sm px-6 border-orange-400 mb-4'>Total Users: {users.length}</div>
             <div className="overflow-x-auto px-6">
                 <table className="table">
                     {/* head */}
@@ -68,16 +68,18 @@ const ManageUsers = () => {
                                         <br />
                                         {/* <span className="badge badge-ghost badge-sm">Desktop Support Technician</span> */}
                                     </td>
-                                    <td>{user && user?.role? user?.role: 'User' }</td>
+                                    <td>{user && user?.role ? user?.role : 'User'}</td>
                                     <th>
                                         <div className="sm:flex gap-4 mx-auto">
                                             {
                                                 // user?.role === 'Admin' &&
-                                                    <button
-                                                        onClick={() => handleMakeAdmin(user?.email)}
-                                                        className="btn btn-ghost btn-xs border-orange-400 ">Make Admin</button>
+                                                <button
+                                                    onClick={() => handleMakeAdmin(user?.email)}
+                                                    disabled={user.role === 'Admin'}
+                                                    className="btn btn-ghost btn-xs border-orange-400 ">Make Admin</button>
                                             }
                                             <button
+                                                disabled={user.role === 'Instructor'}
                                                 onClick={() => handleMakeInstructor(user?.email)}
                                                 className="btn btn-ghost btn-xs border-orange-400">Make Instructor</button>
                                         </div>

@@ -12,3 +12,10 @@ export const imageUpload = async (image) => {
   const data = await response.json();
   return data;
 };
+
+export const allUsers = async () => {
+  const { data: users = [], refetch } = useQuery(["users"], async () => {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/users`);
+    return res.json();
+  });
+}

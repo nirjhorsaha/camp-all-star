@@ -50,3 +50,18 @@ export const denyPost = (id) => {
   }).then((res) => res.json());
   
 };
+
+
+// save a user selected course
+export const addCourse = async (courseData) => {
+  const response = await fetch(`http://localhost:5000/selectedClass`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(courseData),
+  });
+
+  const data = await response.json();
+  return data;
+};

@@ -13,6 +13,7 @@ const PaymentHistry = () => {
                             {/* <th></th> */}
                             <th>Course Name</th>
                             <th>Instructor Name</th>
+                            <th>Transactions ID</th>
                             <th>Total ($)</th>
                         </tr>
                     </thead>
@@ -21,6 +22,7 @@ const PaymentHistry = () => {
                             {/* <th>1</th> */}
                             <td>Cy Ganderton</td>
                             <td>Quality Control Specialist</td>
+                            <td>Qebr2f4w6usb65dhi77</td>
                             <td>Blue</td>
                         </tr>
                     </tbody>

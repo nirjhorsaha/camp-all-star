@@ -31,8 +31,6 @@ const AddClass = () => {
                 console.log(data);
                 const classData = {
                     className,
-                    // insName,
-                    // insEmail,
                     avSeats,
                     price: parseFloat(price),
                     classImg: data.data.display_url,

@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 import { useForm } from "react-hook-form";
-import Swal from 'sweetalert2'
 import toast from 'react-hot-toast'
 import { saveUser } from '../../api/auth';
 
@@ -18,29 +17,7 @@ const SignUpPage = () => {
     const [photoUrl, setPhotoUrl] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    // const handleRegistration = (event) => {
-    //     event.preventDefault();
-
-    //     if (!(name && password && email && photoUrl)) {
-    //         setError("Fill all required fields.!")
-    //     }
-    //     else if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
-    //         setError("Password must be at least 8 characters");
-    //         return;
-    //     }
-
-    //     if ((name, email, password, photoUrl)) {
-    //         createUser(email, password)
-    //             .then((result) => {
-    //                 console.log(result.user);
-    //                 navigate("/");
-    //             })
-    //             .catch((err) => {
-    //                 setError(err.message);
-    //             });
-    //     }
-    // };
-
+  
     const onSubmit = data => {
         console.log(data);
         createUser(data.email, data.password)
@@ -54,13 +31,6 @@ const SignUpPage = () => {
                         // save user to database
                         saveUser(loggedUser)
                         reset();
-                        // Swal.fire({
-                        //     position: 'top-end',
-                        //     icon: 'success',
-                        //     title: 'User created successfully.',
-                        //     showConfirmButton: false,
-                        //     timer: 1500
-                        // });
                         toast.success('User Create successfully.!');
                         navigate('/');
                         // navigate(from, { replace: true });

@@ -4,12 +4,12 @@ import React from 'react';
 const PopularClasses = () => {
     const { data: classes = [], refetch } = useQuery(['classes'], async () => {
         const res = await fetch(`${import.meta.env.VITE_API_URL}/classes`)
-        console.log(classes);
+        // console.log(classes);
         return res.json();
     })
     return (
         <div>
-            <h1 className='text-center text-4xl font-bold text-orange-500 my-10'>Our Popular Classes</h1>
+            <h1 className='text-center text-4xl font-bold text-orange-500 my-16'>Our Popular Classes</h1>
             <div className="grid md:grid-cols-3 gap-4">
                 {
                     classes.slice(0,6).map(pClass => (

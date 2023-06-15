@@ -37,7 +37,11 @@ const MyClass = () => {
                                     <p>Available Seats: <span>{singleClass.avSeats}</span></p>
                                     <p>Price: $ <span>{singleClass.price}</span></p>
                                     <div className="card-actions justify-end">
-                                        <button className="badge badge-outline font-extrabold btn-xs border-2 border-green-400">Status</button>
+                                        {
+                                            singleClass?.status === 'Approve' ?
+                                                <button className="badge badge-outline font-extrabold btn-xs border-0 bg-green-400">{singleClass?.status}</button> :
+                                                <button className="badge badge-outline font-extrabold btn-xs border-0 bg-red-400">{singleClass?.status}</button>
+                                        }
                                         {/* <button className="btn btn-ghost btn-xs border-2 border-red-500">Deny </button> */}
                                     </div>
                                 </div>

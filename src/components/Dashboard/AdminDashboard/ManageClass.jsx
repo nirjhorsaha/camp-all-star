@@ -24,14 +24,14 @@ const ManageClass = () => {
     const handleApprovedClass = (user) => {
         // console.log(user);
         approvedPost(user?._id);
-        refetch();
+        refetch()
         toast.success(`${user?.className} approved`);
     }
 
     const handleDenyClass = (user) => {
         // console.log(id);
         denyPost(user?._id);
-        refetch();
+        refetch()
         toast.error(`${user?.className} denied.!`);
     }
 
@@ -59,9 +59,11 @@ const ManageClass = () => {
                                 <div className="card-actions justify-end">
                                     <button
                                         onClick={() => handleApprovedClass(singleClass)} 
+                                        disabled={singleClass?.status==='Approve'}
                                         className={`btn btn-ghost btn-xs border-2 border-green-400 `}>Approve</button>
                                     <button
                                         onClick={() => handleDenyClass(singleClass)}
+                                        disabled={singleClass?.status === 'Deny'}
                                         className="btn btn-ghost btn-xs border-2 border-red-500">Deny</button>
                                 </div>
                             </div>
