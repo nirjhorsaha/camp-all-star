@@ -1,4 +1,5 @@
 import React from 'react';
+import { Fade, Zoom } from "react-awesome-reveal";
 import bannerImage from '../../assets/bannerImg.jpg'
 
 const Banner = () => {
@@ -24,23 +25,29 @@ const Banner = () => {
                     {/* <p className="inline-block px-4 py-2 mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-orange-400">
                         Brand new
                     </p> */}
-                    <h2 className="mb-5 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                        Getting Best 
-                        <br className="hidden md:block" />
-                        Quality Education {' '}
-                        <span className="inline-block text-deep-purple-accent-400">
-                            Is Now More Easier
-                        </span>
-                    </h2>
+                    <Zoom>
+                        <h2 className="mb-5 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+                            Getting Best
+                            <br className="hidden md:block" />
+                            Quality Education {' '}
+                            <span className="inline-block text-deep-purple-accent-400">
+                                Is Now More Easier
+                            </span>
+                        </h2>
+                    </Zoom>
+
                     <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg ">
                         Join us this summer and embark on an unforgettable journey through the lens. Discover the world of photography, unleash your creativity, and create memories that will last a lifetime. <br />
-                        <span className='font-bold tracking-tight '> Enroll today and let your imagination click!</span>
+                        <Fade delay={1e3} cascade damping={1e-1}>
+                            <span className='font-bold tracking-tight '> Enroll today and let your imagination click!</span>
+                        </Fade>
+                            
                     </p>
                     <div className="flex items-center">
                         <a
                             href="/"
                             className="inline-flex items-center justify-center h-12 px-6 mr-6 font-bold tracking-wide text-dark transition duration-200 rounded-xl shadow-lg bg-orange-400 ">
-                           Join Course
+                            Join Course
                         </a>
                     </div>
                 </div>

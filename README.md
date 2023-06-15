@@ -11,4 +11,4 @@ In `student dashboard` a student will see all the Classes they booked. After suc
 
 ## Live site Link: [Camp All Star](https://www.google.com/)
 
-### Technology: React.js, MongoDB, Node.js, Express.js, Firebase, Tailwind CSS, React Hook Form,  
+### Technology: React.js, MongoDB, Node.js, Express.js, Firebase, Tailwind CSS, React Hook Form, Tanstack Query,  

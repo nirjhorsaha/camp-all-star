@@ -2,11 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { AuthContext } from '../../providers/AuthProviders';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Classes = () => {
     const { role,user } = useContext(AuthContext)
-    console.log(user);
+    // console.log(user);
 
     const { data: classes = [], refetch } = useQuery(['classes'], async () => {
         const res = await fetch(`${import.meta.env.VITE_API_URL}/classes`)
@@ -15,6 +15,7 @@ const Classes = () => {
     })
 
     const findApprovedClass = classes.filter(approveClass => approveClass?.status === 'Approve')
+    refetch();
     // console.log(findApprovedClass);
 
     return (
