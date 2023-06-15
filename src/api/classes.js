@@ -18,3 +18,35 @@ export const getAllClasses = async () => {
   const data = await response.json()
   return data
 }
+
+// approved post
+export const approvedPost = (id) => {
+  const currentUser = {
+    status: "Approve",
+  };
+
+  return fetch(`${import.meta.env.VITE_API_URL}/classes/${id}`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(currentUser),
+  }).then((res) => res.json());
+  
+};
+
+// Deny post
+export const denyPost = (id) => {
+  const currentUser = {
+    status: "Deny",
+  };
+
+  return fetch(`${import.meta.env.VITE_API_URL}/classes/${id}`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(currentUser),
+  }).then((res) => res.json());
+  
+};

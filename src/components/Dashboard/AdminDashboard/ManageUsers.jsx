@@ -7,7 +7,7 @@ import { toast } from 'react-hot-toast';
 
 const ManageUsers = () => {
 
-    const [disabled, setDisbled] = useState('');
+    // const [disabled, setDisbled] = useState('');
 
     const { data: users = [], refetch } = useQuery(['users'], async () => {
         const res = await fetch(`${import.meta.env.VITE_API_URL}/users`)
@@ -15,16 +15,18 @@ const ManageUsers = () => {
         return res.json();
     })
 
+    // make admin
     const handleMakeAdmin = email => {
         becomeAdmin(email);
-        refetch();
+        refetch()
         toast.success('Assigned as Admin Successfully.!');
     }
+
+    // make instructor by admin
     const handleMakeInstructor = email => {
         becomeInstructor(email)
-        refetch();
+        refetch()
         toast.success('Assigned as Instructor Successfully.!');
-
     }
 
     return (

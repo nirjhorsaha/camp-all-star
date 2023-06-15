@@ -1,75 +1,78 @@
-import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
+import { AuthContext } from '../../providers/AuthProviders';
+import { Link, Navigate } from 'react-router-dom';
 
 const Classes = () => {
+    const { role,user } = useContext(AuthContext)
+    console.log(user);
+
+    const { data: classes = [], refetch } = useQuery(['classes'], async () => {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/classes`)
+        // console.log(classes);
+        return res.json();
+    })
+
+    const findApprovedClass = classes.filter(approveClass => approveClass?.status === 'Approve')
+    // console.log(findApprovedClass);
+
     return (
         <div>
             <Helmet>
                 <title>Class - Camp All Star</title>
             </Helmet>
+
             <h1 className='text-center text-3xl font-bold text-orange-500 mb-10'>All Classes</h1>
             <div className='grid md:grid-cols-3 gap-2'>
+                {
+                    findApprovedClass.map(singleClass => (
+                        <>
+                            <section className="text-gray-600 body-font">
+                                <div className="container mx-auto flex pb-10 items-center justify-center flex-col">
+                                    <img className="w-4/6 mb-6 object-cover object-center rounded" alt="hero" src={singleClass?. classImg } />
+                                    <div className="text-center w-5/6">
+                                        <h1 className="title-font text-4xl md:text-2xl mb-4 font-medium text-gray-900">{singleClass?.className} </h1>
 
-                <section className="text-gray-600 body-font">
-                    <div className="container mx-auto flex pb-10 items-center justify-center flex-col">
-                        <img className="w-4/6 mb-10 object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600" />
-                        <div className="text-center w-4/6">
-                            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Class Name </h1>
+                                        <div className="card-actions justify-center mb-4 ">
+                                            <div className="badge badge-outline text-lg p-4">Instructor : {singleClass?.instructor?.name }</div>
+                                        </div>
+                                        <div className="card-actions justify-center mb-4">
+                                            <div className="badge badge-outline p-3">Available Seats: {singleClass.avSeats } </div>
+                                            <div className="badge badge-outline p-3">Price: {singleClass?.price }$ </div>
+                                        </div>
 
-                            <div className="card-actions justify-center mb-4 ">
-                                <div className="badge badge-outline text-lg p-4">Instractor: name</div>
-                            </div>
-                            <div className="card-actions justify-center mb-4">
-                                <div className="badge badge-outline p-3">Available Seats: </div>
-                                <div className="badge badge-outline p-3">Price: 10$ </div>
-                            </div>
+                                        <p className="mb-4 leading-relaxed text-left">
+                                            <span className='font-bold'>Learning Objectives:</span>
+                                                <li>Master lighting techniques for different scenarios.</li>
+                                                <li>Learn basic photo editing skills to enhance their images.</li>
+                                                <li>Develop a personal style and vision as a photographer.</li>
+                                        </p>
+                                        
+                                        {
+                                            role === 'Admin' ? 
+                                                <> </> 
+                                                : role === 'Instructor' ?
+                                                    <></>
+                                                    : <div className="flex justify-center">
+                                                        {
+                                                            user ?
+                                                                <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Select Class</button>
+                                                                : <Link to='/login'>
+                                                                    <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Select Class</button>
+                                                                </Link>
+                                                    }
+                                                </div>
+                                        }
+                                    </div>
+                                </div>
+                            </section>
+                        </>
+                    ))
+                }
 
-                            <p className="mb-8 leading-relaxed text-left">Meggings kinfolk echo park stumptown DIY, kale chips beard jianbing tousled. Chambray dreamcatcher trust fund, kitsch vice godard disrupt ramps hexagon </p>
-                            <div className="flex justify-center">
-                                <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Select Class</button>
-                                {/* <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button> */}
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section className="text-gray-600 body-font">
-                    <div className="container mx-auto flex pb-10 items-center justify-center flex-col">
-                        <img className="w-4/6 mb-10 object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600" />
-                        <div className="text-center w-4/6">
-                            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Microdosing synth </h1>
-
-                            <div className="card-actions justify-center mb-4">
-                                <div className="badge badge-outline">teacher@school.com</div>
-                                <div className="badge badge-outline">019xxxxxxxx</div>
-                            </div>
-
-                            <p className="mb-8 leading-relaxed text-left">Meggings kinfolk echo park stumptown DIY, kale chips beard jianbing tousled. Chambray dreamcatcher trust fund, kitsch vice godard disrupt ramps hexagon </p>
-                            <div className="flex justify-center">
-                                <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">See Classes</button>
-                                {/* <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button> */}
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section className="text-gray-600 body-font">
-                    <div className="container mx-auto flex pb-10 items-center justify-center flex-col">
-                        <img className="w-4/6 mb-10 object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600" />
-                        <div className="text-center w-4/6">
-                            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Microdosing synth </h1>
-
-                            <div className="card-actions justify-center mb-4">
-                                <div className="badge badge-outline">teacher@school.com</div>
-                                <div className="badge badge-outline">019xxxxxxxx</div>
-                            </div>
-
-                            <p className="mb-8 leading-relaxed text-left">Meggings kinfolk echo park stumptown DIY, kale chips beard jianbing tousled. Chambray dreamcatcher trust fund, kitsch vice godard disrupt ramps hexagon </p>
-                            <div className="flex justify-center">
-                                <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">See Classes</button>
-                                {/* <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button> */}
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                
+                
             </div>
         </div>
     );
