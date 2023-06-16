@@ -61,6 +61,7 @@ const Sidebar = () => {
                                     <h1 className='text-2xl font-bold px-2'>Welcome To <br /> User Dashboard</h1>
                                 </>
                     }
+                    
                     <div className='flex flex-col items-center mt-6 -mx-2'>
                         <Link to='/dashboard'>
                             <img
@@ -183,37 +184,7 @@ const Sidebar = () => {
                             }
                         </nav>
                     </div>
-                    {/* <div className='flex flex-col justify-between flex-1 mt-6'>
-                        <nav>
-                            {role && role === 'host' ? (
-                                <>
-                                    <label
-                                        htmlFor='Toggle3'
-                                        className='inline-flex w-full justify-center items-center px-2 rounded-md cursor-pointer text-gray-800'
-                                    >
-                                        <input
-                                            onChange={toggleHandler}
-                                            id='Toggle3'
-                                            type='checkbox'
-                                            className='hidden peer'
-                                        />
-                                        <span className='px-4 py-1 rounded-l-md bg-rose-400 peer-checked:bg-gray-300'>
-                                            Guest
-                                        </span>
-                                        <span className='px-4 py-1 rounded-r-md bg-gray-300 peer-checked:bg-rose-400'>
-                                            Host
-                                        </span>
-                                    </label>
-                                    {toggle ? <HostMenu /> : <GuestMenu />}
-                                </>
-                            ) : (
-                                <GuestMenu />
-                            )}
-                        </nav>
-                    </div> */}
                 </div>
-                {/* Menu Links */}
-
 
                 <div>
                     <hr />
@@ -229,8 +200,7 @@ const Sidebar = () => {
                     </NavLink>
                     <button
                         onClick={handleLogout}
-                        className='flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'
-                    >
+                        className='flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'>
                         <AiOutlineLogout className='w-5 h-5' />
                         <span className='mx-4 font-bold'>Logout</span>
                     </button>

@@ -109,42 +109,6 @@ const NavBar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 tracking-wider font-medium">
-                        {/* <li>
-                            <NavLink to="/"
-                                className={({ isActive }) => (isActive ? 'text-red-500 underline' : 'default')}>
-                                Home
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/alltoys"
-                                className={({ isActive }) => (isActive ? 'text-red-500 underline' : 'default')}>
-                                All Toys
-                            </NavLink>
-                        </li>
-                        {
-                            // user &&
-                            <li>
-                                <NavLink to="/mytoys"
-                                    className={({ isActive }) => (isActive ? 'text-red-500 underline' : 'default')}>
-                                    My Toys
-                                </NavLink>
-                            </li>
-                        }
-                        {
-                            // user &&
-                            <li>
-                                <NavLink to="/addtoys"
-                                    className={({ isActive }) => (isActive ? 'text-red-500 underline' : 'default')}>
-                                    Add Toys
-                                </NavLink>
-                            </li>
-                        } */}
-                        {/* <li>
-                            <NavLink to="/blog"
-                                className={({ isActive }) => (isActive ? 'text-red-500 underline' : 'default')}>
-                                Blogs
-                            </NavLink>
-                        </li> */}
                         {navOptions}
                     </ul>
                 </div>
