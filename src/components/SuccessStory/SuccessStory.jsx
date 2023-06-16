@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import 'aos/dist/aos.css';
+import Aos from 'aos';
 
 const SuccessStory = () => {
+    
+    // aos animation
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, [])
+
     return (
         <section className="text-gray-600 body-font">
             <div className="container  py-10 mx-auto">
@@ -8,7 +16,8 @@ const SuccessStory = () => {
                     {/* <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">ROOF PARTY POLAROID</h2> */}
                     <h1 className="text-center text-4xl font-bold text-orange-500 mt-0">About Our Success Story</h1>
                 </div>
-                <div className="flex flex-wrap -m-4">
+                <div data-aos="zoom-out"
+                    className="flex flex-wrap -m-4">
                     <div className="p-4 md:w-1/3">
                         <div className="flex rounded-lg h-full bg-slate-200 p-8 flex-col">
                             <div className="flex items-center mb-3">

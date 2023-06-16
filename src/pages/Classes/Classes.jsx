@@ -1,13 +1,21 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { AuthContext } from '../../providers/AuthProviders';
 import { Link } from 'react-router-dom';
 import { addCourse } from '../../api/classes';
 import { toast } from 'react-hot-toast';
 import { set } from 'react-hook-form';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Classes = () => {
+    // aos animation
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, [])
+
+
     const { role, user } = useContext(AuthContext)
     const { data: classes = [], refetch } = useQuery(['classes'], async () => {
         const res = await fetch(`${import.meta.env.VITE_API_URL}/classes`)
@@ -48,7 +56,7 @@ const Classes = () => {
             <div className='grid md:grid-cols-3 gap-2'>
                 {
                     findApprovedClass.map(singleClass => (
-                        <>
+                        <div data-aos="zoom-out">
                             <section className="text-gray-600 body-font">
                                 <div className="container mx-auto flex pb-10 items-center justify-center flex-col">
                                     <img className="w-4/6 mb-6 object-cover object-center rounded" alt="hero" src={singleClass?.classImg} />
@@ -93,7 +101,7 @@ const Classes = () => {
                                     </div>
                                 </div>
                             </section>
-                        </>
+                        </div>
                     ))
                 }
             </div>

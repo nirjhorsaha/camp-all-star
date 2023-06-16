@@ -3,6 +3,7 @@ import { Fade, Zoom } from "react-awesome-reveal";
 import bannerImage from '../../assets/bannerImg.jpg'
 
 const Banner = () => {
+
     return (
         <div className="relative flex flex-col-reverse py-16 lg:flex-col lg:pb-0">
             <div className="inset-y-0 top-0 right-0 z-0 w-full mx-auto md:px-0 lg:mt-10 lg:w-7/12 lg:max-w-full lg:absolute xl:px-0">
@@ -14,7 +15,7 @@ const Banner = () => {
                 >
                     <path d="M40 0H100L50 100H0L50 0Z" />
                 </svg>
-                <img
+                <img 
                     className="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96"
                     src={bannerImage}
                     alt=""
