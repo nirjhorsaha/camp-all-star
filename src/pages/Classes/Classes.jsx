@@ -5,11 +5,10 @@ import { AuthContext } from '../../providers/AuthProviders';
 import { Link } from 'react-router-dom';
 import { addCourse } from '../../api/classes';
 import { toast } from 'react-hot-toast';
+import { set } from 'react-hook-form';
 
 const Classes = () => {
     const { role, user } = useContext(AuthContext)
-    // console.log(user);
-
     const { data: classes = [], refetch } = useQuery(['classes'], async () => {
         const res = await fetch(`${import.meta.env.VITE_API_URL}/classes`)
         // console.log(classes);
@@ -17,30 +16,26 @@ const Classes = () => {
     })
 
     const findApprovedClass = classes.filter(approveClass => approveClass?.status === 'Approve')
-    refetch();
+    refetch()
     // console.log(findApprovedClass);
 
-    // const [course, setCourse] = useState({
-    //     user: {
-    //         name: user.displayName,
-    //         email: user.email,
-    //     },
-    // });
+    const [course, setCourse] = useState();
+    console.log(course);
 
-    const handleSelectClass = (sClass) => {
-        // const user: {
-        //     name: user?.displayName,
-        //         image: user?.photoURL,
-        //             email: user?.email,
-        //             },
-        addCourse(sClass)
+    const users = {
+        name: user?.displayName,
+        email: user?.email
+    }
+
+    const handleClassAndUserData = async (data) => {
+        setCourse({ classData: data, userData: users })
+        await addCourse(course)
             .then(data => {
                 console.log(data)
                 toast.success('Course Selected.!')
             })
             .catch(err => console.log(err))
-        // console.log(sClass);
-
+        // console.log(course);
     }
 
     return (
@@ -84,7 +79,9 @@ const Classes = () => {
                                                         {
                                                             user ?
                                                                 <button
-                                                                    onClick={() => handleSelectClass(singleClass)}
+                                                                    onClick={() => handleClassAndUserData(singleClass)}
+                                                                    
+                                                                    // disabled={}
                                                                     className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Select Class</button>
                                                                 : <Link to='/login'>
                                                                     <button
@@ -99,9 +96,6 @@ const Classes = () => {
                         </>
                     ))
                 }
-
-
-
             </div>
         </div>
     );

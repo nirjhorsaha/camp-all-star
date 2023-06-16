@@ -5,7 +5,7 @@ import { allUsers } from '../../api/utils';
 const PopularInstractors = () => {
     const { data: users = [], refetch } = useQuery(['users'], async () => {
         const res = await fetch(`${import.meta.env.VITE_API_URL}/users`)
-        console.log(users);
+        // console.log(users);
         return res.json();
     })
 
@@ -13,7 +13,7 @@ const PopularInstractors = () => {
 
     return (
         <>
-            <h1 className='text-center text-4xl font-bold text-orange-500 my-16'> Our Popular Instructors</h1>
+            <h1 className='text-center text-4xl font-bold text-orange-500 my-16'> === Our Popular Instructors === </h1>
             {/* <h1 className='text-center text-3xl font-bold text-orange-500 my-10 border-y-8 w-96 mx-auto p-3'> Our Popular Instractors</h1> */}
             <div className="grid md:grid-cols-3 gap-4">
                 {
@@ -27,7 +27,7 @@ const PopularInstractors = () => {
                                 <h2 className="card-title">{pInstructor?.name }</h2>
                                 <p> Highly skilled and passionate instructor dedicated to empowering learners through education.</p>
                                 <div className="card-actions justify-end">
-                                    <button className="btn btn-primary btn-sm">Follow</button>
+                                    <button className="btn btn-sm btn-outline hover:bg-orange-400 border-orange-400 hover:border-0">Follow</button>
                                 </div>
                             </div>
                         </div>

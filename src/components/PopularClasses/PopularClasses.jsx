@@ -9,13 +9,13 @@ const PopularClasses = () => {
     })
     return (
         <div>
-            <h1 className='text-center text-4xl font-bold text-orange-500 my-16'>Our Popular Classes</h1>
+            <h1 className='text-center text-4xl font-bold text-orange-500 my-16'>=== Our Popular Classes ===</h1>
             <div className="grid md:grid-cols-3 gap-4">
                 {
                     classes.slice(0,6).map(pClass => (
                         <div className="card w-96 bg-base-100 shadow-xl group">
                             <figure>
-                                <img className='object-cover group-hover:scale-110 transition' src={pClass?.classImg} alt="Shoes" />
+                                <img className='object-cover group-hover:scale-110 h-60 transition' src={pClass?.classImg} alt="Shoes" />
                             </figure>
                             <div className="card-body">
                                 <h2 className="card-title">
