@@ -18,6 +18,7 @@ import PaymentHistry from "../components/Dashboard/UserDashboard/PaymentHistry";
 import ManageClass from "../components/Dashboard/AdminDashboard/ManageClass";
 import ManageUsers from "../components/Dashboard/AdminDashboard/ManageUsers";
 import PrivateRoute from "./PrivateRoute";
+import Profile from "../pages/Shared/Profile/Profile";
 
 export const router = createBrowserRouter([
     {
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
             {
                 path: "/signup",
                 element: <SignUpPage />
+            },
+            {
+                path: "/profile",
+                element:<Profile/>
             }
         ]
     },
