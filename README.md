@@ -9,6 +9,6 @@
 
 In `student dashboard` a student will see all the Classes they booked. After successful payment, he/she will see the Class information  on the **My Enrolled Classes page** 
 
-## Live site Link: [Camp All Star](https://www.google.com/)
+## Live site Link: [Camp All Star](https://camp-all-star.web.app/)
 
 ### Technology: React.js, MongoDB, Node.js, Express.js, Firebase, Tailwind CSS, React Hook Form, Tanstack Query,  
