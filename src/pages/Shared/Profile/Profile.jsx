@@ -47,7 +47,7 @@ const Profile = () => {
                 <div className="mt-20 text-center border-b pb-12">
                     <h1 className="text-4xl font-medium text-gray-700">{user?.displayName}
                     </h1>
-                    <p className="badge badge-lg bg-green-300">{role ? role : 'User'}</p>
+                    <p className="badge badge-lg bg-green-400 border-0 font-bold text-slate-950">{role ? role : 'User'}</p>
                     <p className="font-bold text-gray-600 mt-3">{user?.email}</p>
                     <p className="mt-8 text-orange-500">Solution Manager - Creative Tim Officer</p>
                     <p className="mt-2 text-orange-500">University of Computer Science</p>

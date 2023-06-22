@@ -7,7 +7,7 @@ const EnrolledClass = () => {
             {/* <h1 className='text-center text-4xl font-bold text-orange-500 my-6 border-y-4 w-96 p-4 mx-auto'>Manage Class</h1> */}
             <CustomHeader title='My Enrolled Class'></CustomHeader>
             <div className="grid md:grid-cols-3 gap-4 p-4">
-                <div className="card md:w-80 bg-base-100 shadow-xl group">
+                <div className="card md:w-80 bg-white-100 shadow-xl group">
                     <figure>
                         <img className='object-cover group-hover:scale-110 transition' src="https://img.freepik.com/free-photo/coworkers-office-with-photo-cameras-computer_329181-12002.jpg?w=740&t=st=1686285576~exp=1686286176~hmac=89646c0bccb5ba973f398442c1e908939d76eac4908bd7b4f7721aca536bf611" alt="Shoes" />
                     </figure>

@@ -28,7 +28,7 @@ const Classes = () => {
     // console.log(findApprovedClass);
 
     const [course, setCourse] = useState();
-    console.log(course);
+    // console.log(course);
 
     const users = {
         name: user?.displayName,
@@ -58,8 +58,8 @@ const Classes = () => {
                     findApprovedClass.map(singleClass => (
                         <div data-aos="zoom-out">
                             <section className="text-gray-600 body-font">
-                                <div className="container mx-auto flex pb-10 items-center justify-center flex-col">
-                                    <img className="w-4/6 mb-6 object-cover object-center rounded" alt="hero" src={singleClass?.classImg} />
+                                <div className="container mx-auto flex pb-10 items-center justify-center flex-col group">
+                                    <img className="w-5/6 h-72 mb-6 object-cover object-center rounded group-hover:scale-110 transition" alt="hero" src={singleClass?.classImg} />
                                     <div className="text-center w-5/6">
                                         <h1 className="title-font text-4xl md:text-2xl mb-4 font-medium text-gray-900">{singleClass?.className} </h1>
 
@@ -88,7 +88,6 @@ const Classes = () => {
                                                             user ?
                                                                 <button
                                                                     onClick={() => handleClassAndUserData(singleClass)}
-                                                                    
                                                                     // disabled={}
                                                                     className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Select Class</button>
                                                                 : <Link to='/login'>

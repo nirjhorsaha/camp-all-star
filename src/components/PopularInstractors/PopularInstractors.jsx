@@ -27,16 +27,16 @@ const PopularInstractors = () => {
                 {
                     inst.slice(0, 6).map(pInstructor => (
                             <div data-aos="zoom-in"
-                                className="card card-side bg-base-100 shadow-xl ">
+                                className="card card-side bg-white-100 shadow-xl ">
                                 <figure>
                                     <img className='h-60'
                                         src={pInstructor?.pURL} alt="Teacher" />
                                 </figure>
-                                <div className="card-body  px-2">
+                                <div className="card-body px-6">
                                     <h2 className="card-title">{pInstructor?.name}</h2>
                                     <p> Highly skilled and passionate instructor dedicated to empowering learners through education.</p>
                                     <div className="card-actions justify-end">
-                                        <button className="btn btn-sm btn-outline hover:bg-orange-400 border-orange-400 hover:border-0">Follow</button>
+                                        <button className="btn btn-sm btn-outline hover:bg-orange-400 border-orange-400 hover:border-0 text-black">Follow</button>
                                     </div>
                                 </div>
                             </div>

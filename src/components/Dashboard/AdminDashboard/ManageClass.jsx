@@ -43,7 +43,7 @@ const ManageClass = () => {
             <div className="grid md:grid-cols-3 gap-4 p-4">
                 {
                     classes.map(singleClass => (
-                        <div className="card md:w-80 bg-base-100 shadow-xl group">
+                        <div className="card md:w-96 bg-white-100 shadow-xl group">
                             <figure>
                                 <img className='object-cover h-64 group-hover:scale-110 transition' src={singleClass?.classImg} alt="Class" />
                             </figure>

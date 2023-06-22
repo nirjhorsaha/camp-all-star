@@ -21,7 +21,7 @@ const MyClass = () => {
                 {
                     findUserSingleClass.map((singleClass) =>
                         <>
-                            <div className="card md:w-80 bg-base-100 shadow-xl group">
+                            <div className="card md:w-80 bg-white-100 shadow-xl group">
                                 <figure>
                                     <img className='object-cover group-hover:scale-110 transition' src={singleClass?.classImg} alt="Shoes" />
                                 </figure>

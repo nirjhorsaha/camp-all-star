@@ -21,8 +21,8 @@ const Banner = () => {
                     alt=""
                 />
             </div>
-            <div className="relative flex flex-col items-start w-full mx-auto md:px-0 lg:max-w-screen-xl">
-                <div className="mb-16  lg:max-w-lg lg:pr-5">
+            <div className="relative flex flex-col items-start w-full mx-auto md:px-0 justify-center p-4">
+                <div className="mb-16 lg:max-w-2xl lg:pr-5">
                     {/* <p className="inline-block px-4 py-2 mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-orange-400">
                         Brand new
                     </p> */}

@@ -21,9 +21,9 @@ const PopularClasses = () => {
                 {
                     classes.slice(0,6).map(pClass => (
                         <div data-aos="zoom-in"
-                            className="card w-96 bg-base-100 shadow-xl group">
+                            className="card bg-white-100 shadow-xl group">
                             <figure>
-                                <img className='object-cover group-hover:scale-110 h-60 transition' src={pClass?.classImg} alt="Shoes" />
+                                <img className='object-cover group-hover:scale-110 h-60 w-full transition' src={pClass?.classImg} alt="Shoes" />
                             </figure>
                             <div className="card-body">
                                 <h2 className="card-title">

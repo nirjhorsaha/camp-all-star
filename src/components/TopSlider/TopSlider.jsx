@@ -28,8 +28,9 @@ const TopSlider = () => {
                 modules={[Pagination]}
                 className="mySwiper my-6"
             >
-                <SwiperSlide className='border-1 shadow-xl rounded-t-2xl p-4 md:p-0'>
-                    <img src={slideImg1} alt="" srcset="" className='mx-auto mt-3' />
+                <SwiperSlide className='border-1 shadow-xl rounded-t-2xl p-4 md:p-0 '>
+                    <img 
+                    src={slideImg1} alt="" srcset="" className='mx-auto mt-3' />
                     <h1 className='text-center text-xl m-4 md:m-10 tracking-widest font-bold '>Best Tutor</h1>
                 </SwiperSlide>
 

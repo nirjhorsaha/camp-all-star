@@ -45,7 +45,7 @@ const SignUpPage = () => {
                 <title>Sign UPp - Camp All Star</title>
             </Helmet>
 
-            <section className="dark:bg-gray-900 mb-10">
+            <section className="dark:bg-white mb-10">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                     <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -106,7 +106,7 @@ const SignUpPage = () => {
                                 </div>
                                 <button
                                     // onClick={handleRegistration}
-                                    type="submit" className="w-full text-white bg-orange-400 hover:bg-orange-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Create an account</button>
+                                    type="submit" className="w-full text-white bg-orange-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Create an account</button>
                                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                                     Already have an account? <Link className=' text-primary-600 hover:underline dark:text-primary-500 italic font-bold' to='/login'>Login</Link>
                                 </p>

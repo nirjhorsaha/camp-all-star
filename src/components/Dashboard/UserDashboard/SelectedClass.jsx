@@ -25,9 +25,9 @@ const SelectedClass = () => {
                 {
                     findUserSelectedCourse.map(userCourses => 
                         <>
-                            <div className="card md:w-80 bg-base-100 shadow-xl group">
+                            <div className="card md:w-96 bg-white-100 shadow-xl group ">
                                 <figure>
-                                    <img className='object-cover group-hover:scale-110 h-52 transition' src={userCourses?.classData?.classImg} alt="Shoes" />
+                                    <img className='object-cover group-hover:scale-110 md:h-72 transition' src={userCourses?.classData?.classImg} alt="Shoes" />
                                 </figure>
                                 <div className="card-body">
                                     <h2 className="card-title">

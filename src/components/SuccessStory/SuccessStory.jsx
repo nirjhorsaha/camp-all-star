@@ -11,7 +11,7 @@ const SuccessStory = () => {
 
     return (
         <section className="text-gray-600 body-font">
-            <div className="container  py-10 mx-auto">
+            <div className=" py-10 mx-auto">
                 <div className="flex flex-col text-center w-full my-10">
                     {/* <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">ROOF PARTY POLAROID</h2> */}
                     <h1 className="text-center text-4xl font-bold text-orange-500 mt-0">About Our Success Story</h1>

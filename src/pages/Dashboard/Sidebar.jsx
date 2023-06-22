@@ -83,7 +83,7 @@ const Sidebar = () => {
                         </Link>
                     </div>
                     <div className="card-actions justify-center">
-                        <p className='text-center badge badge-md bg-green-400  '>{role? role: 'User'}</p>
+                        <p className='text-center badge badge-md bg-green-400 border-0 text-black font-bold '>{role? role: 'User'}</p>
                     </div>
 
 

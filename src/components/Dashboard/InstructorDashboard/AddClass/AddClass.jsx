@@ -69,7 +69,7 @@ const AddClass = () => {
                                 Class Name
                             </label>
                             <input
-                                className='w-full px-4 py-3 text-gray-800 border border-dark focus:outline-orange-400 rounded-md '
+                                className='w-full px-4 py-3 text-gray-600  border bg-white focus:outline-orange-400 rounded-md '
                                 name='cName'
                                 id='cName'
                                 type='text'
@@ -80,16 +80,16 @@ const AddClass = () => {
                         
                         
 
-                        <div className='space-y-1 text-sm'>
-                            <label htmlFor='category' className='block text-gray-600'>
-                                Class Image
-                            </label>
-                            <div className=' p-4 bg-white w-full  m-auto rounded-lg'>
-                                <div className='file_upload px-5 py-3 relative border-4 rounded-lg'>
-                                    <div className='flex flex-col w-max mx-auto text-center'>
-                                        <label>
+                            <div className='space-y-1 text-sm'>
+                                <label htmlFor='category' className='block text-gray-600'>
+                                    Class Image
+                                </label>
+                                <div className=' p-4 bg-white w-full  m-auto rounded-lg'>
+                                    <div className='file_upload px-5 py-3 relative border-4 rounded-lg'>
+                                        <div className='flex flex-col w-max mx-auto text-center'>
+                                            <label>
                                             <input
-                                                className='text-sm cursor-pointer w-36 hidden focus:outline-orange-400'
+                                                className='text-sm cursor-pointer w-36 hidden  focus:outline-orange-400'
                                                 type='file'
                                                 name='image'
                                                 id='image'
@@ -111,7 +111,7 @@ const AddClass = () => {
                                 Instructor Name
                             </label>
                             <input
-                                className='w-full px-4 py-3 text-gray-800 border border-dark focus:outline-orange-400 rounded-md '
+                                className='w-full px-4 py-3 text-gray-800 border border-dark bg-white focus:outline-orange-400 rounded-md '
                                 name='iName'
                                 id='iName'
                                 type='text'
@@ -126,7 +126,7 @@ const AddClass = () => {
                                 Instructor Email
                             </label>
                             <input
-                                className='w-full px-4 py-3 text-gray-800 border border-dark focus:outline-orange-400 rounded-md '
+                                className='w-full px-4 py-3 text-gray-800 border border-dark bg-white focus:outline-orange-400 rounded-md '
                                 name='iEmail'
                                 id='iEmail'
                                 type='email'
@@ -142,7 +142,7 @@ const AddClass = () => {
                                     Available Seats
                                 </label>
                                 <input
-                                    className='w-full px-4 py-3 text-gray-800 border border-dark focus:outline-orange-400 rounded-md '
+                                    className='w-full px-4 py-3 text-gray-800 border border-dark bg-white focus:outline-orange-400 rounded-md '
                                     name='aSeats'
                                     id='aSeats'
                                     type='number'
@@ -156,7 +156,7 @@ const AddClass = () => {
                                     Price
                                 </label>
                                 <input
-                                    className='w-full px-4 py-3 text-gray-800 border border-dark focus:outline-orange-400 rounded-md '
+                                    className='w-full px-4 py-3 text-gray-800 border border-dark bg-white focus:outline-orange-400 rounded-md '
                                     name='price'
                                     id='price'
                                     type='number'
